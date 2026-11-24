@@ -3,12 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}/* Visa lapa Arial fontā */
-html,body,button,input,select,textarea,h1,h2,h3,h4,p,a,li,span,small,b,strong,blockquote,figcaption{font-family:Arial,Helvetica,sans-serif}
-</style>
-</head>
-<body>
-</head><body>
 <title>Latvijas dārgumi</title>
 <meta name="description" content="„Latvijas dārgumi” – milzu grīdas spēle un mācību līdzeklis Latvijas iepazīšanai pirmsskolā un skolā.">
 <style>
@@ -393,7 +387,28 @@ footer{background:var(--forest);color:var(--forest-ink);padding-block:36px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
 footer .hand{font-size:1.2rem}
 footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transparent)}
+/* Vienkāršāks, mierīgāks izskats */
+:root{--radius:4px}
+.btn,.nav a,.addon-cta,.tabs button,.gal-filter button,.age .tag,.chip{border-radius:4px}
+.eyebrow,.price small,.crow small,.addon-ph small,.age h4,.ladder span,.token .theme{text-transform:none;letter-spacing:0}
+.eyebrow{font-size:.95rem;font-weight:700}
+.hero-title .eyebrow{font-size:max(12px,.95cqw)}
+.demo,.real-card img,.ph,.ph img,.addon,.act,.age,.review,.reviews-empty,.intro figure,.instr-viewer,.instr-page{box-shadow:none!important}
+.ph,.ph img,.addon,.age,.review,.reviews-empty,.real-card img,.callout,.kit-grid li,.kit-grid img,.contact,.instr-page{border-radius:4px}
+.price{border-radius:4px;background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.price .num{color:var(--carmine)}
+.price small{font-size:1rem;opacity:1}
+.review,.reviews-empty{border-top:1px solid var(--line)}
+.reviews-empty{grid-template-columns:1fr}
+.addon-ph{background:var(--surface-2)!important;background-image:none!important}
+.addon-ph small{font-size:.9rem;font-weight:400}
+.crow a.v{color:inherit;text-decoration:none}
+.crow a.v:hover{text-decoration:underline}
+/* Visa lapa Arial fontā */
+html,body,button,input,select,textarea,h1,h2,h3,h4,p,a,li,span,small,b,strong,blockquote,figcaption{font-family:Arial,Helvetica,sans-serif}
 </style>
+</head>
+<body>
 
 <header class="top">
   <div class="wrap">
@@ -606,7 +621,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
 
 <section class="band" id="papildkomplekti">
   <div class="wrap">
-    <h2>Papildkomplekti padziļinātai apguvei</h2>
+    <h2>Papildkomplekti</h2>
     <p class="lead">Papildkomplekti paplašina pamatkomplektu ar jaunām kartītēm un uzdevumiem, ļaujot ar to pašu karti strādāt arvien plašāk un dziļāk.</p>
 
     <!--
@@ -639,7 +654,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
       </article>
 
       <article class="addon" data-joma="geografija">
-        <div class="addon-ph ph-c"><span>▲</span><small>Foto drīzumā</small></div>
+        <div class="addon-ph ph-c"><small>Foto drīzumā</small></div>
         <div class="addon-body">
           <h3>Reljefa apguves komplekts</h3>
           <p>Augstienes, zemienes un pauguri. Padziļina pauguru ekspedīcijas uzdevumus.</p>
@@ -657,7 +672,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
       </article>
 
       <article class="addon" data-joma="geografija">
-        <div class="addon-ph ph-e"><span>★</span><small>Foto drīzumā</small></div>
+        <div class="addon-ph ph-e"><small>Foto drīzumā</small></div>
         <div class="addon-body">
           <h3>Īpašo objektu komplekts</h3>
           <p>Apraksts drīzumā.</p>
@@ -666,7 +681,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
       </article>
 
       <article class="addon" data-joma="daba">
-        <div class="addon-ph ph-a"><span>❦</span><small>Foto drīzumā</small></div>
+        <div class="addon-ph ph-a"><small>Foto drīzumā</small></div>
         <div class="addon-body">
           <h3>Latvijas augi, dzīvnieki, resursi</h3>
           <p>Kartītes dabas tēmām: ko kur Latvijā var atrast un kas aug, dzīvo vai tiek iegūts.</p>
@@ -675,7 +690,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
       </article>
 
       <article class="addon" data-joma="valoda">
-        <div class="addon-ph ph-b"><span>A Ā</span><small>Foto drīzumā</small></div>
+        <div class="addon-ph ph-b"><small>Foto drīzumā</small></div>
         <div class="addon-body">
           <h3>Burti valodas spēlēm</h3>
           <p>Burtu kartītes vārdu spēlēm uz kartes: sākuma skaņas, zilbes, pilsētu un upju nosaukumi.</p>
@@ -684,7 +699,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
       </article>
 
       <article class="addon" data-joma="valoda">
-        <div class="addon-ph ph-c"><span>1+2</span><small>Foto drīzumā</small></div>
+        <div class="addon-ph ph-c"><small>Foto drīzumā</small></div>
         <div class="addon-body">
           <h3>Cipari un matemātiskās zīmes</h3>
           <p>Skaitīšanai, salīdzināšanai un aprēķiniem ar rūtiņām, attālumiem un žetoniem.</p>
@@ -699,8 +714,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
 
 <section id="atsauksmes" style="background:var(--surface-2)">
   <div class="wrap">
-    <div class="eyebrow">Atsauksmes</div>
-    <h2>Ko saka pedagogi</h2>
+    <h2>Atsauksmes</h2>
     <!-- KĀ PIEVIENOT ATSAUKSMI: nokopējiet šo bloku, ielīmējiet to <div class="reviews"> iekšpusē
          un nomainiet tekstu, vārdu un iestādi. Kad ir vismaz viena atsauksme, izdzēsiet bloku <div class="reviews-empty">.
       <figure class="review">
@@ -710,11 +724,10 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
     -->
     <div class="reviews">
       <div class="reviews-empty">
-        <span class="qmark" aria-hidden="true">“</span>
         <div>
           <h3>Pirmās atsauksmes drīzumā</h3>
           <p>Vai jau spēlējat „Latvijas dārgumus” savā grupā vai klasē? Pastāstiet, kā veicas, ko bērni atklāja un kuri uzdevumi patika visvairāk. Ar jūsu atļauju atsauksmi publicēsim šeit.</p>
-          <div class="crow rev-mail"><div><small>Rakstiet uz</small><span class="v" id="email2">info@muzle.lv</span></div><button class="copy" data-copy="email2">Kopēt</button></div>
+          <div class="crow rev-mail"><div><small>Rakstiet uz</small><a class="v" id="email2" href="mailto:info@muzle.lv">info@muzle.lv</a></div></div>
         </div>
       </div>
     </div>
@@ -723,7 +736,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
 
 <section id="pasutit">
   <div class="wrap">
-    <h2>Viens komplekts. Gadiem ilga mācīšanās.</h2>
+    <h2>Pasūtīt</h2>
     <div class="order">
       <div class="price">
         <small>Pamatkomplekta cena</small>
@@ -737,8 +750,8 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
       </div>
       <div class="contact">
         <h3>Sazinieties par pasūtījumu</h3>
-        <div class="crow"><div><small>E-pasts</small><span class="v" id="email">info@muzle.lv</span></div><button class="copy" data-copy="email">Kopēt</button></div>
-        <div class="crow"><div><small>Tālrunis</small><span class="v" id="phone">+371 29239595</span></div><button class="copy" data-copy="phone">Kopēt</button></div>
+        <div class="crow"><div><small>E-pasts</small><a class="v" id="email" href="mailto:info@muzle.lv">info@muzle.lv</a></div></div>
+        <div class="crow"><div><small>Tālrunis</small><a class="v" id="phone" href="tel:+37129239595">+371 29239595</a></div></div>
         <div class="crow"><div><small>Piegāde</small><span class="v">Visā Latvijā</span></div></div>
         <p class="company">SIA “Meistars A” · Reģ. Nr. 45403010853<br>Lāčplēša iela 5, Aizkraukle, Aizkraukles nov., LV-5101</p>
       </div>
