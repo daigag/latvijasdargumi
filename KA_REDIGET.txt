@@ -1,0 +1,53 @@
+LATVIJAS DĀRGUMI – mājas lapas faili
+=====================================
+
+Mapes saturs
+------------
+index.html        Visa lapa: visi teksti, sadaļas, krāsas un izkārtojums.
+img/              Visas lapas bildes.
+img/instr/        Instrukcijas lappušu bildes (lapā redzamais pāršķiramais skatītājs).
+docs/             Spēles instrukcija PDF formātā.
+izejas/           Lielāka izmēra titulbilde turpmākai apstrādei (lapā netiek izmantota).
+
+Kā mainīt tekstu
+----------------
+1. Atveriet index.html ar teksta redaktoru, piemēram, Notepad vai Visual Studio Code (nevis Word).
+2. Ar Ctrl + F atrodiet teikumu, ko gribat mainīt, un izlabojiet to.
+3. Daļas starp < un > zīmēm atstājiet neskartas, tās ir lapas uzbūve.
+4. Saglabājiet failu un augšupielādējiet to hostingā vecā vietā.
+
+Kā nomainīt bildi
+-----------------
+Ielieciet jauno bildi mapē img ar tieši tādu pašu nosaukumu kā vecajai
+(piemēram, karte.jpg ir titulbilde) un augšupielādējiet to hostingā.
+
+Kā pievienot papildkomplektu
+----------------------------
+index.html failā sadaļā "Papildkomplekti" ir latviska instrukcija:
+nokopējiet vienu <article class="addon"> ... </article> bloku, ielīmējiet aiz pēdējā
+un nomainiet nosaukumu, aprakstu un cenu.
+
+Kā nomainīt instrukcijas PDF
+----------------------------
+Ielieciet jauno PDF mapē docs ar nosaukumu Latvijas_dargumi_instrukcija.pdf.
+Ja mainās lappušu skaits vai saturs, palūdziet Claude atjaunot lappušu bildes img/instr mapē.
+
+Krāsas
+------
+Visas lapas krāsas ir index.html sākumā, rindās, kas sākas ar --, piemēram:
+  --carmine:#9e3039;   Latvijas karoga tumšsarkanā
+  --forest:#5e8333;    sūnu zaļā (sadaļu fons)
+  --orange:#c9663a;    pogu oranžā
+Nomainot vērtību vienā vietā, krāsa mainās visā lapā.
+
+Fotogalerija
+------------
+Ielieciet bildi mapē img. Sadaļā "Fotogalerija" (index.html) nokopējiet vienu rindu,
+kas sākas ar <button type="button" class="ph", un nomainiet bildes nosaukumu,
+parakstu (alt un span) un data-cat (prakse, komplekts vai kartites).
+
+Atsauksmes
+----------
+Sadaļā "Atsauksmes" (index.html) ir paraugs. Nokopējiet <figure class="review"> bloku,
+ierakstiet atsauksmi, vārdu un iestādi. Kad ir pirmā atsauksme, izdzēsiet bloku
+<div class="reviews-empty"> ... </div>. Publicējiet tikai atsauksmes ar autora atļauju.

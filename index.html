@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+</head>
+<body>
+</head><body>
+<title>Latvijas dārgumi</title>
+<meta name="description" content="„Latvijas dārgumi” – milzu grīdas spēle un mācību līdzeklis Latvijas iepazīšanai pirmsskolā un skolā.">
+<style>
+/* Layout: a walk across the floor map — cream "paper" sections, a forest-green band for the big moments, map blue/green as the only bright colours. */
+:root{
+  --bg:#f8f4ea;
+  --top-bg:#fffdf9;
+  --surface:#ffffff;
+  --surface-2:#efe8d8;
+  --ink:#1d2a22;
+  --muted:#5b6a5f;
+  --line:#ddd3bf;
+  --forest:#5e8333;
+  --forest-ink:#f3efe3;
+  --orange:#c9663a;
+  --orange-ink:#ffffff;
+  --mustard:#e2b13c;
+  --sea:#3473b8;
+  --sea-soft:#d6e6f5;
+  --meadow:#7fb35a;
+  --meadow-soft:#e3efd6;
+  --sand:#efd9a8;
+  --carmine:#9e3039;
+  --moss:#5e8333;
+  --font-display:Arial, Helvetica, sans-serif;
+  --font-body:Arial, Helvetica, sans-serif;
+  --font-hand:Arial, Helvetica, sans-serif;
+  --radius:14px;
+  --maxw:1160px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121c16; --top-bg:#1a271f; --surface:#1a271f; --surface-2:#22322a; --ink:#ece7d9; --muted:#a9b5a9; --line:#2f4237;
+    --forest:#0c1611; --forest-ink:#ece7d9; --orange:#e07a4c; --orange-ink:#1a120c; --mustard:#e9bd52;
+    --sea:#6aa6e6; --sea-soft:#1c3147; --meadow:#9ccb78; --meadow-soft:#22341e; --sand:#3b3220; --carmine:#7f2630;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121c16; --top-bg:#1a271f; --surface:#1a271f; --surface-2:#22322a; --ink:#ece7d9; --muted:#a9b5a9; --line:#2f4237;
+  --forest:#0c1611; --forest-ink:#ece7d9; --orange:#e07a4c; --orange-ink:#1a120c; --mustard:#e9bd52;
+  --sea:#6aa6e6; --sea-soft:#1c3147; --meadow:#9ccb78; --meadow-soft:#22341e; --sand:#3b3220; --carmine:#7f2630;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--top-bg)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:800}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(56px,8vw,96px);scroll-margin-top:96px}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:62ch;margin-top:16px}
+.hand{font-family:var(--font-hand);font-weight:700}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px;border-radius:6px}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--top-bg) 95%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:62px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.05;white-space:nowrap;flex:none}
+.brand b{font-family:var(--font-hand);font-size:1.25rem;font-weight:700;color:var(--forest);}
+:root[data-theme="dark"] .brand b{color:var(--meadow)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .brand b{color:var(--meadow)}}
+.brand small{font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+.nav{display:flex;gap:2px;margin-left:auto;flex-wrap:nowrap;justify-content:flex-end}
+.nav a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.9rem;padding:6px 10px;border-radius:999px;color:var(--ink)}
+.nav a:hover{background:var(--surface-2)}
+.nav a.cta{background:var(--orange);color:var(--orange-ink)}
+.nav a.cta:hover{filter:brightness(1.06);background:var(--orange)}
+@media (min-width:0px){.top .wrap{flex-wrap:wrap;gap:4px 12px;padding-block:8px}.nav{order:3;width:100%;margin-left:0;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.nav::-webkit-scrollbar{display:none}.nav a{white-space:nowrap}.nav a.cta{order:-1}}
+
+/* Hero: texts sit on the empty parts of the map (sea and inland Vidzeme) */
+.hero{padding:0;background:var(--forest)}
+.hero-stage{position:relative;max-width:1680px;margin:0 auto;container-type:inline-size;overflow:hidden}
+.hero-bg{display:block;width:100%;height:auto;aspect-ratio:2000/1263}
+.hero-title{position:absolute;left:18.5%;top:-6.5%;width:60%;padding:7.9cqw 10cqw 7.4cqw;color:#fff;text-align:center;
+  background:radial-gradient(ellipse closest-side at 50% 50%,rgba(9,28,58,.64) 0%,rgba(9,28,58,.58) 48%,rgba(9,28,58,.38) 68%,rgba(9,28,58,.13) 87%,rgba(9,28,58,0) 100%)}
+.hero-title .btns{justify-content:center}
+.one-line{white-space:nowrap}
+.hero-title p.sub{margin-left:auto;margin-right:auto}
+.hero-title .eyebrow{color:#ffd166;font-size:max(11px,.85cqw);margin-bottom:.6cqw;text-shadow:0 1px 8px rgba(0,0,0,.75),0 0 2px rgba(0,0,0,.5)}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:max(28px,3.3cqw);white-space:nowrap;line-height:1;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.65),0 0 4px rgba(0,0,0,.45)}
+.hero p.sub{text-wrap:balance;font-size:max(14px,1.2cqw);line-height:1.4;margin-top:.9cqw;color:#fff;max-width:none;text-shadow:0 1px 10px rgba(0,0,0,.8),0 0 3px rgba(0,0,0,.6)}
+.hero .btns{display:flex;flex-wrap:wrap;gap:.8cqw;margin-top:1.3cqw}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:1rem;padding:12px 20px;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.hero .btn{font-size:max(13px,1.05cqw);padding:max(8px,.75cqw) max(14px,1.3cqw)}
+.btn-primary{background:var(--carmine);color:#fff}
+.btn-primary:hover{filter:brightness(1.12)}
+.btn-ghost{border-color:rgba(255,255,255,.75);color:#fff;background:rgba(9,28,58,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+/* one translucent square at the right-hand edge of the map (columns Ķ–L) */
+.hero-feats{position:absolute;left:88.6%;top:6.6%;width:10.2%}
+.feat{aspect-ratio:1;display:flex;flex-direction:column;justify-content:center;gap:.6cqw;background:rgba(255,252,244,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#1d2a22;border-radius:.7cqw;padding:1cqw;border:1px solid rgba(255,255,255,.7);border-top:.35cqw solid var(--carmine)}
+.feat span{display:block;font-size:max(11px,.92cqw);line-height:1.3;font-weight:700;color:#1d2a22}
+.feat b{display:block;font-family:var(--font-display);font-weight:700;font-size:max(13px,1.25cqw);line-height:1.1;color:var(--carmine);white-space:nowrap}
+@container (max-width: 899px){
+  .hero-title,.hero-feats{position:static;width:auto;border-radius:0}
+  .hero-title{padding:24px max(16px,env(safe-area-inset-left,0px)) 22px;background:#0c2242}
+  .hero-title,.hero-feats{left:auto;top:auto}
+  .one-line{white-space:normal}
+  .hero-title{text-align:left}.hero-title .btns{justify-content:flex-start}
+  .hero-title p.sub{margin-left:0}
+  .hero-title .eyebrow{font-size:12px;margin-bottom:8px}
+  .hero h1{font-size:clamp(2rem,8.5cqw,3rem);white-space:normal}
+  .hero p.sub{font-size:1.05rem;margin-top:10px}
+  .hero .btns{gap:10px;margin-top:16px}
+  .hero .btn{font-size:.95rem;padding:10px 16px}
+  .hero-feats{padding:16px max(16px,env(safe-area-inset-left,0px)) 22px;background:var(--forest)}
+  .feat{aspect-ratio:auto;flex-direction:row;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;border-radius:10px;padding:12px 14px;border-top-width:4px;background:rgba(255,252,244,.95)}
+  .feat b{font-size:1.1rem}.feat span{font-size:.92rem}
+}
+
+/* Intro: Latvian flag carmine */
+section.par{padding:0}
+.par-top{background:var(--carmine);color:#fff;padding-block:clamp(56px,8vw,96px)}
+.par-top .eyebrow{color:#fff;display:flex;align-items:center;gap:12px}
+.intro{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.intro > *{min-width:0}
+.quote{font-family:var(--font-hand);font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.55;font-style:italic;color:#fff}
+.quote strong{font-weight:700;color:#fff;white-space:nowrap}
+.par-top .lead{color:rgba(255,255,255,.86)}
+.intro figure{margin:0;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;max-width:100%;border:6px solid #fff}
+.intro figure img{width:100%;height:100%;object-fit:cover}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(-88px,-7vw,-56px);padding-bottom:clamp(56px,8vw,96px);position:relative}
+.pillar{padding:22px;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--carmine);border-radius:var(--radius)}
+.pillar p{color:var(--muted);margin-top:8px;font-size:.98rem}
+@media (max-width:820px){.intro{grid-template-columns:1fr}.intro figure{aspect-ratio:4/3}.pillars{grid-template-columns:1fr}}
+
+
+/* "Par spēli": Monotype Corsiva (standard Word font); only the section title is bold */
+#par{font-family:"Monotype Corsiva","Apple Chancery","URW Chancery L","Segoe Script",cursive;font-weight:400;letter-spacing:.02em}
+#par .eyebrow{font-family:inherit;font-weight:700;font-size:2rem;letter-spacing:.01em;text-transform:none}
+#par .quote{font-family:inherit;font-style:normal;font-weight:400;font-size:clamp(1.65rem,2.7vw,2.05rem);line-height:1.35}
+#par .quote strong{font-weight:400}
+#par .quote-by{font-size:clamp(1.35rem,2.1vw,1.6rem);margin-top:14px;color:rgba(255,255,255,.85);text-align:right}
+#par .pillar h3{font-family:inherit;font-weight:400;font-size:1.75rem;line-height:1.15}
+#par .pillar p{font-weight:400;font-size:1.4rem;line-height:1.3}
+
+/* Tokens */
+.band{background:var(--forest);color:var(--forest-ink)}
+.band .lead{color:color-mix(in srgb,var(--forest-ink) 75%,transparent)}
+.band .eyebrow{color:var(--mustard)}
+.tokens{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.token{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px}
+.token img{width:auto;height:92px;max-width:130px;object-fit:contain;align-self:flex-start;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3))}
+.token img.wide{width:128px;object-fit:contain;background:#fff}
+.token .theme{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--mustard)}
+.token p{font-size:.95rem;color:color-mix(in srgb,var(--forest-ink) 78%,transparent)}
+.token.surprise{background:var(--mustard);border-color:var(--mustard);color:#2a2410}
+.token.surprise .theme{color:#6b4b0c}
+.token.surprise p{color:#3b3216}
+.token.more{border-style:dashed;border-color:rgba(255,255,255,.45);background:transparent}
+.more-mark{width:86px;height:86px;display:grid;place-items:center;font-size:3rem;font-weight:700;line-height:1;color:var(--mustard)}
+.token.more a{margin-top:auto;font-weight:700;color:var(--mustard);text-decoration:none}
+.token.more a:hover{text-decoration:underline}
+.token-note{margin-top:24px;font-size:.95rem;color:color-mix(in srgb,var(--forest-ink) 72%,transparent);max-width:70ch}
+@media (max-width:900px){.tokens{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.tokens{grid-template-columns:1fr}}
+
+/* How to play */
+.play{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);margin-top:40px;align-items:start}
+.play > *{min-width:0}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;counter-increment:s}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--sea);color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:1.2rem}
+.steps h3{font-size:1.08rem;margin-top:8px}
+.steps p{color:var(--muted);font-size:.97rem;margin-top:4px}
+.rules{margin-top:28px;padding:18px 20px;border-radius:var(--radius);background:var(--surface-2)}
+.rules h3{font-size:1rem}
+.rules ul{margin:8px 0 0;padding-left:20px;color:var(--muted);font-size:.96rem}
+
+/* Demo board */
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 10px 30px -18px rgba(30,50,30,.35)}
+.demo-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.demo-head h3{font-size:1.1rem}
+.demo-head small{color:var(--muted);font-size:.85rem}
+.board-wrap{overflow-x:auto;margin-top:14px}
+.board{display:grid;grid-template-columns:28px repeat(6,minmax(40px,1fr));gap:3px;min-width:300px;user-select:none}
+.board .lbl{display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.cell{aspect-ratio:1;border-radius:6px;position:relative;display:grid;place-items:center;font-size:1.3rem;background:var(--meadow-soft);border:1px solid color-mix(in srgb,var(--meadow) 35%,transparent)}
+.cell.sea{background:var(--sea-soft);border-color:color-mix(in srgb,var(--sea) 30%,transparent)}
+.cell.path{background:color-mix(in srgb,var(--mustard) 35%,var(--meadow-soft))}
+.cell.sea.path{background:color-mix(in srgb,var(--mustard) 35%,var(--sea-soft))}
+.cell .arr{font-weight:800;color:var(--orange);font-size:1.25rem}
+.cell img{width:82%;height:82%;object-fit:cover;border-radius:50%;border:2px solid #fff}
+.cell .me{position:absolute;inset:12%;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.8rem;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .2s}
+.cell.goal-near{outline:3px solid var(--mustard);outline-offset:-2px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+.dpad{display:grid;grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px);gap:4px}
+.dpad button{font-size:1.2rem;font-weight:800;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer}
+.dpad button:disabled{opacity:.4;cursor:not-allowed}
+.dpad .u{grid-column:2;grid-row:1}.dpad .l{grid-column:1;grid-row:2}.dpad .d{grid-column:2;grid-row:2}.dpad .r{grid-column:3;grid-row:2}
+.ctl-col{display:flex;flex-direction:column;gap:8px;flex:1;min-width:150px}
+.small-btn{font-family:var(--font-body);font-weight:800;font-size:.92rem;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer;text-align:left}
+.small-btn.primary{background:var(--sea);border-color:var(--sea);color:#fff}
+.die{font-family:var(--font-display);font-weight:800}
+.status{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--surface-2);font-size:.95rem;min-height:3.2em}
+.status.win{background:color-mix(in srgb,var(--mustard) 30%,var(--surface))}
+.status b{font-variant-numeric:tabular-nums}
+
+/* Ladder */
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.ladder div{padding:18px 20px;border-right:1px solid var(--line)}
+.ladder div:last-child{border-right:0}
+.ladder span{display:block;font-family:var(--font-hand);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);line-height:1}
+.ladder p{font-size:.96rem;margin-top:6px}
+@media (max-width:820px){.play{grid-template-columns:1fr}.ladder{grid-template-columns:1fr}.ladder div{border-right:0;border-bottom:1px solid var(--line)}.ladder div:last-child{border-bottom:0}}
+
+/* Instructions */
+.instr{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);margin-top:36px;align-items:start}
+.instr-viewer{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.instr-stage{aspect-ratio:827/1170;max-width:100%;overflow:hidden;border-radius:8px;background:#fff;border:1px solid var(--line)}
+.instr-stage img{width:100%;height:100%;object-fit:contain}
+.instr-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.instr-nav button{font:inherit;font-size:1.1rem;width:44px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer}
+.instr-nav button:disabled{opacity:.4;cursor:default}
+.instr-side{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.instr-file{font-size:.9rem;color:var(--muted)}
+.instr-toc{margin:8px 0 0;padding-left:22px;display:flex;flex-direction:column;gap:2px;width:100%}
+.instr-toc button{font:inherit;font-size:1rem;color:var(--ink);background:none;border:0;padding:6px 0;cursor:pointer;text-align:left}
+.instr-toc button:hover{color:var(--orange)}
+.instr-toc button[aria-current="true"]{color:var(--orange);font-weight:700}
+@media (max-width:820px){.instr{grid-template-columns:1fr}}
+
+/* Age */
+.ages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.age{border-radius:var(--radius);padding:24px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.age .tag{align-self:flex-start;font-weight:800;font-size:.8rem;padding:4px 10px;border-radius:999px;background:var(--meadow-soft);color:var(--ink)}
+.age:nth-child(2) .tag{background:var(--sea-soft)}
+.age:nth-child(3) .tag{background:var(--sand)}
+.age .goal{font-size:.98rem;line-height:1.55}
+.age h4{margin:6px 0 0;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.age.robot h4{color:color-mix(in srgb,var(--forest-ink) 70%,transparent)}
+.age ul{margin:0;padding-left:18px;color:var(--muted);font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.age.robot{background:var(--forest);color:var(--forest-ink);border-color:var(--forest)}
+.age.robot ul{color:color-mix(in srgb,var(--forest-ink) 78%,transparent)}
+.age.robot .tag{background:var(--mustard);color:#2a2410}
+@media (max-width:900px){.ages{grid-template-columns:1fr}}
+
+/* Cards */
+.cards-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,60px);align-items:start;margin-top:40px}
+.cards-grid > *{min-width:0}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font-family:var(--font-body);font-weight:800;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.qcard{margin-top:18px;background:var(--surface);border-radius:16px;border:2px solid var(--sea);overflow:hidden}
+.qcard header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--sea);color:#fff;font-weight:800}
+.qcard header img{width:auto;height:36px;max-width:56px;object-fit:contain}
+.qcard ol{list-style:none;margin:0;padding:6px 18px 14px}
+.qcard li{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.qcard li:last-child{border-bottom:0}
+.stars{color:var(--mustard);font-size:1.05rem;letter-spacing:1px;white-space:nowrap}
+.qcard .ans{display:block;color:var(--muted);font-size:.9rem;margin-top:4px;font-style:italic}
+.levels-key{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.levels-key div{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:baseline}
+.levels-key p{color:var(--muted);font-size:.96rem}
+.real-card{margin:0}
+.real-card img{width:100%;height:auto;border-radius:14px;box-shadow:0 14px 30px -14px rgba(30,40,30,.45)}
+.real-card figcaption{margin-top:14px;font-size:.9rem;color:var(--muted);text-align:center}
+.callout{margin:0 0 22px;padding:20px 22px;background:#efdfbd;color:#33291a;border:2px solid #c9ad74;border-radius:14px;font-size:1.08rem;line-height:1.55;box-shadow:0 8px 20px -14px rgba(80,60,20,.5)}
+.callout strong{color:var(--carmine);font-size:1.25rem;line-height:1.3;display:block;margin-bottom:6px}
+:root[data-theme="dark"] .callout{background:#3b3220;color:#efe6d2;border-color:#6b5a36}
+:root[data-theme="dark"] .callout strong{color:#e98a92}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .callout{background:#3b3220;color:#efe6d2;border-color:#6b5a36}:root:not([data-theme="light"]) .callout strong{color:#e98a92}}
+@media (max-width:860px){.cards-grid{grid-template-columns:1fr}}
+
+/* Activities */
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.act{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.act img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.act .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px}
+.act .letter{font-family:var(--font-hand);font-weight:700;font-size:1.3rem;color:var(--orange);line-height:1}
+.act p{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.acts{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.acts{grid-template-columns:1fr}}
+
+/* Practice gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}
+.gallery figure{margin:0}
+.gallery img{width:100%;aspect-ratio:2/1;object-fit:cover;border-radius:10px}
+.gallery figcaption{font-size:.88rem;color:var(--muted);margin-top:6px}
+@media (max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
+
+/* Photo gallery */
+.gal-filter{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.gal-filter button{font:inherit;font-weight:700;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.gal-filter button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:20px}
+.ph{position:relative;display:block;padding:0;border:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--surface-2);aspect-ratio:4/3}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.ph:hover img{transform:scale(1.04)}
+.ph span{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;font-size:.85rem;font-weight:700;color:#fff;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,16,12,.96);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0;height:100%;justify-content:center}
+.lb img{max-width:100%;max-height:calc(100vh - 120px);object-fit:contain;border-radius:8px}
+.lb figcaption{color:#fff;font-weight:700;text-align:center}
+.lb button{font:inherit;font-size:1.4rem;color:#fff;background:rgba(255,255,255,.12);border:0;border-radius:999px;width:48px;height:48px;cursor:pointer}
+.lb .lb-close{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
+@media (max-width:560px){.gal{grid-template-columns:1fr 1fr;gap:8px}.ph span{font-size:.72rem;padding:16px 8px 6px}}
+@media (max-width:600px){.lb{grid-template-columns:1fr}.lb-prev,.lb-next{position:absolute;bottom:max(16px,env(safe-area-inset-bottom,0px))}.lb-prev{left:16px}.lb-next{right:16px}}
+
+/* Reviews */
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:32px}
+.review{margin:0;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--carmine);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:14px}
+.review blockquote{margin:0;font-style:italic;line-height:1.6}
+.review figcaption b{display:block}.review figcaption span{font-size:.9rem;color:var(--muted)}
+.reviews-empty{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:20px;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--carmine);border-radius:var(--radius);padding:clamp(20px,3vw,32px);max-width:760px}
+.reviews-empty .qmark{font-size:5rem;line-height:.8;font-weight:700;color:var(--carmine);font-family:Georgia,serif}
+.reviews-empty p{color:var(--muted);margin-top:8px}
+.rev-mail{margin-top:16px;border-bottom:0;padding-bottom:0}
+@media (max-width:520px){.reviews-empty{grid-template-columns:1fr}}
+
+/* Kit */
+.kit-grid{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.kit-grid li{display:grid;grid-template-columns:88px 1fr;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px 8px 8px;min-width:0}
+.kit-grid img{width:88px;height:66px;object-fit:cover;border-radius:8px}
+.kit-grid b{display:block;font-family:var(--font-display);font-weight:800;color:var(--sea);font-variant-numeric:tabular-nums;font-size:1.15rem;line-height:1.1}
+.kit-grid span{display:block;font-size:.9rem;line-height:1.35}
+.scale{margin-top:20px;font-size:.95rem;color:var(--muted)}
+.scale b{color:var(--ink)}
+@media (max-width:860px){.kit{grid-template-columns:1fr}}
+@media (max-width:520px){.kit-list{columns:1}}
+
+/* Add-ons */
+.kit-filter{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.kit-filter button{font-family:var(--font-body);font-weight:800;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:var(--forest-ink);cursor:pointer}
+.kit-filter button[aria-pressed="true"]{background:var(--mustard);border-color:var(--mustard);color:#2a2410}
+.addons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+.addon{border-radius:var(--radius);overflow:hidden;background:var(--surface);color:var(--ink);display:flex;flex-direction:column;min-width:0}
+.addon > img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.addon-ph{aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;
+  background-color:var(--meadow-soft);
+  background-image:linear-gradient(color-mix(in srgb,var(--ink) 9%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 9%,transparent) 1px,transparent 1px);
+  background-size:22px 22px}
+.addon-ph span{font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--forest)}
+.addon-ph small{font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.ph-b{background-color:var(--sea-soft)}.ph-b span{color:var(--sea)}
+.ph-c{background-color:var(--sand)}.ph-c span{color:var(--orange)}
+.ph-d{background-color:var(--sea-soft)}.ph-d span{color:var(--sea)}
+.ph-e{background-color:color-mix(in srgb,var(--mustard) 30%,var(--surface))}.ph-e span{color:var(--orange)}
+:root[data-theme="dark"] .addon-ph span{filter:brightness(1.4)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .addon-ph span{filter:brightness(1.4)}}
+.addon-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.addon-body h3{font-size:1.05rem}
+.addon-body p{font-size:.93rem;color:var(--muted)}
+.chip{align-self:flex-start;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted)}
+.chip.new{background:var(--orange);color:#fff}
+.addon-foot{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line)}
+.addon-price{font-weight:800;font-size:.92rem}
+.addon-cta{font-weight:800;font-size:.88rem;text-decoration:none;padding:7px 14px;border-radius:999px;background:var(--orange);color:#fff}
+.addon-note{margin-top:22px;font-size:.95rem;color:color-mix(in srgb,var(--forest-ink) 72%,transparent)}
+@media (max-width:1000px){.addons{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.addons{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.addons{grid-template-columns:1fr}}
+
+/* Price & contact */
+.order{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,4vw,48px);margin-top:40px;align-items:stretch}
+.order > *{min-width:0}
+.price{background:var(--orange);color:#fff;border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:8px}
+.price small{text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.78rem;opacity:.9}
+.price .num{font-family:var(--font-display);font-weight:800;font-size:clamp(3.5rem,8vw,5rem);line-height:1;font-variant-numeric:tabular-nums}
+.price ul{margin:14px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.crow:last-of-type{border-bottom:0}
+.crow small{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.crow .v{font-family:var(--font-display);font-weight:800;font-size:1.35rem;user-select:all;word-break:break-word}
+.copy{font-family:var(--font-body);font-weight:800;font-size:.85rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer}
+.company{font-size:.92rem;color:var(--muted)}
+@media (max-width:860px){.order{grid-template-columns:1fr}}
+
+footer{background:var(--forest);color:var(--forest-ink);padding-block:36px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .hand{font-size:1.2rem}
+footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transparent)}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#sakums"><b>„Latvijas dārgumi”</b><small>latvijasdargumi.lv</small></a>
+    <nav class="nav" aria-label="Galvenā navigācija">
+      <a href="#par">Par spēli</a>
+      <a href="#zetoni">Žetoni</a>
+      <a href="#instrukcija">Kā darboties</a>
+      <a href="#vecumposmi">Vecumposmi</a>
+      <a href="#kartites">Uzdevumi</a>
+      <a href="#galerija">Fotogalerija</a>
+      <a href="#komplekts">Pamatkomplekts</a>
+      <a href="#papildkomplekti">Papildkomplekti</a>
+      <a href="#atsauksmes">Atsauksmes</a>
+      <a class="cta" href="#pasutit">Pasūtīt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="sakums">
+<section class="hero">
+  <div class="hero-stage">
+    <img class="hero-bg" src="img/karte.jpg" alt="„Latvijas dārgumu” grīdas karte ar izliktām kartītēm, žetoniem, karogiem un ceļotāju figūrām" width="2000" height="1263">
+    <div class="hero-title">
+      <div class="eyebrow">Mācību līdzeklis skolām un pirmsskolām</div>
+      <h1>„Latvijas dārgumi”</h1>
+      <p class="sub">Karte, kas kļūst par piedzīvojumu.<br><span class="one-line">Mazgājams, nodilumizturīgs milzu grīdas paklājs 1,80&nbsp;×&nbsp;2,85&nbsp;m.</span></p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#pasutit">Pasūtīt komplektu</a>
+        <a class="btn btn-ghost" href="#instrukcija">Kā darboties</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="par" class="par">
+  <div class="par-top">
+    <div class="wrap">
+    <div class="intro">
+      <div>
+        <div class="eyebrow">Kas ir „Latvijas dārgumi”?</div>
+        <p class="quote">„Tie katram no mums ir gan kopīgi, gan atšķirīgi. Tā ir Latvijas daba – meži, upes, ezeri, pļavas un jūra, mūsu Rīga un mūsu mājas, mūsu bērni un mūsu vecāki. Tas ir mūsu karogs un mūsu himna, Brīvības piemineklis. Un, protams, mūsu valoda, brīvība un Dziesmu svētki, mūsu vēsture un nākotne. Šis materiāls ir tieši par to – par <strong>mūsu Latviju!</strong>”</p>
+        <p class="quote-by">(„Latvijas dārgumu” komanda)</p>
+      </div>
+      <figure><img src="img/robots.jpg" alt="Bērns uz grīdas kartes vada Bee-Bot robotu" loading="lazy"></figure>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="zetoni">
+  <div class="wrap">
+    <h2>Dārgumu žetoni</h2>
+    <div class="tokens">
+      <div class="token"><img src="img/tok_egle.png" alt="Egles žetons" loading="lazy"><h3>Mežs un daba</h3><p>Latvijas koki, augi, dzīvnieki, meži un daba. Kartītes: liepa, ozols, pīpene, mārīte, cielava.</p></div>
+      <div class="token"><img src="img/tok_zivs.png" alt="Zivs žetons" loading="lazy"><h3>Jūra</h3><p>Baltijas jūra, Rīgas jūras līcis, zivis un piekraste. Kartītes: kuģis, kaija, kāpas, bāka, ronis, dzintars.</p></div>
+      <div class="token"><img src="img/tok_lase.png" alt="Ūdens lāses žetons" loading="lazy"><h3>Upes un ezeri</h3><p>Latvijas upes, ezeri un ūdeņi. Kartītes: 4 upes un 10 ezeri ar to formām.</p></div>
+      <div class="token"><img src="img/tok_maize.png" alt="Maizes klaipa žetons" loading="lazy"><h3>Lauksaimniecība un reljefs</h3><p>Lauki, augi, raža, augstienes un zemienes. Kartītes: 9 virsotnes.</p></div>
+      <div class="token"><img src="img/tok_pilseta.png" alt="Pilsētas žetons" loading="lazy"><h3>Pilsētas un vietas</h3><p>Latvijas pilsētas un apdzīvotās vietas. Kartītes: 10 valstspilsētas un 5 novadu ģerboņi.</p></div>
+      <div class="token"><img src="img/tok_autobuss.png" alt="Autobusa žetons" loading="lazy"><h3>Kaimiņvalstis</h3><p>Kaimiņvalstis un ceļošana pāri robežām. Kartītes: 4 kaimiņvalstu karogi un nosaukumi.</p></div>
+      <div class="token surprise"><img src="img/tok_spuldzite.png" alt="Spuldzītes žetons" loading="lazy"><h3>Pārsteigums!</h3><p>Dažādas tēmas, te var notikt gandrīz jebkas. Kartītes: Latvijas karogs, ģerbonis, Brīvības piemineklis, himna.</p></div>
+      <div class="token more"><div class="more-mark" aria-hidden="true">+</div><h3>Papildkomplektos jaunas tēmas</h3><p>Papildkomplektos būs jaunas tēmas ar saviem dārgumu žetoniem un jautājumu kartītēm, tāpēc ar to pašu karti var strādāt arvien plašāk.</p><a href="#papildkomplekti">Skatīt papildkomplektus →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="instrukcija">
+  <div class="wrap">
+    <div class="eyebrow">Spēles instrukcija</div>
+    <h2>Kā darboties</h2>
+    <p class="lead">Pilna instrukcija pedagogiem: komplekta saturs, sagatavošanās, trīs spēles varianti ar noteikumiem un uzdevumiem. 11 lappuses, A4.</p>
+    <div class="instr">
+      <div class="instr-viewer">
+        <div class="instr-stage"><img id="instr-img" src="img/instr/lpp-1.jpg" alt="Instrukcijas 1. lappuse" width="827" height="1170"></div>
+        <div class="instr-nav">
+          <button type="button" id="instr-prev" aria-label="Iepriekšējā lappuse">←</button>
+          <span id="instr-count">1 / 11</span>
+          <button type="button" id="instr-next" aria-label="Nākamā lappuse">→</button>
+        </div>
+      </div>
+      <div class="instr-side">
+        <a class="btn btn-primary" href="docs/Latvijas_dargumi_instrukcija.pdf" target="_blank" rel="noopener">Atvērt instrukciju (PDF)</a>
+        <p class="instr-file">Latvijas_dargumi_instrukcija.pdf · 1,4 MB</p>
+        <ol class="instr-toc">
+          <li><button type="button" data-p="1">Pamatkomplekta sastāvs</button></li>
+          <li><button type="button" data-p="2">Koordinātu sistēmas apgūšana</button></li>
+          <li><button type="button" data-p="3">Iepazīšanās ar karti pašiem mazākajiem</button></li>
+          <li><button type="button" data-p="4">1. Spēle ar dārgumu žetoniem: žetoni un tēmas</button></li>
+          <li><button type="button" data-p="5">Spēles mērķis un sagatavošana</button></li>
+          <li><button type="button" data-p="6">Spēles gaita un noteikumi</button></li>
+          <li><button type="button" data-p="7">Spēles variācijas dažādiem vecumiem</button></li>
+          <li><button type="button" data-p="8">2. Aktīva mācīšanās</button></li>
+          <li><button type="button" data-p="9">Uzdevumi tēmu žetoniem</button></li>
+          <li><button type="button" data-p="10">3. Citi izmantošanas veidi</button></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vecumposmi" style="background:var(--surface-2)">
+  <div class="wrap">
+    <h2>Mācību līdzeklis no pirmsskolas līdz pamatskolai</h2>
+    <p class="lead">Viena karte der visām vecuma grupām. Pedagogs izvēlas uzdevumus un noteikumus, kas atbilst bērnu vecumam un nodarbības tēmai, un pakāpeniski pievieno grūtākus elementus.</p>
+    <div class="ages">
+      <div class="age">
+        <span class="tag">Pirmsskola · 4–6 gadi</span>
+        <h3>Spēles mērķis</h3>
+        <p class="goal">Radoša un daudzveidīga darbošanās, apgūstot pamatlietas par Latvijas ģeogrāfiju un dabu, attīstot loģisko domāšanu, matemātikas, valodas un orientēšanās prasmes, kā arī algoritmu veidošanu.</p>
+      </div>
+      <div class="age">
+        <span class="tag">Sākumskola un pamatskola</span>
+        <h3>Spēles mērķis</h3>
+        <p class="goal">Padziļinātas zināšanas un izpratne par Latvijas ģeogrāfiju un dabu saskaņā ar mācību programmu, izmantojot dažādām tēmām paredzētus aktivitāšu blokus. Skolēni attīsta izpratni par koordinātu sistēmu un tabulām. Spēles formāts motivē un palīdz asociatīvi apgūt objektu nosaukumus un to atrašanās vietu kartē.</p>
+      </div>
+      <div class="age robot">
+        <span class="tag">Robotika un programmēšana</span>
+        <h3>Spēles mērķis</h3>
+        <p class="goal">Algoritmu un robotikas pamatu apguve uz kartes, kas veidota koordinātu sistēmā. Kartes rūtiņa atbilst programmējamo robotu (Bee-Bot, Blue-Bot u.c.) 15 cm solim, tāpēc robots var kļūt par visas grupas kopīgo ceļotāju: bērni ieprogrammē tā ceļu līdz dārgumam, piemēram, sākot no savas dzimtās pilsētas. Var darboties arī bez robota.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kartites">
+  <div class="wrap">
+    <h2>Jautājumu un uzdevumu kartītes</h2>
+    <div class="cards-grid">
+      <div>
+        <div class="callout"><p><strong>Kartītes ir rosinājums un ideju avots.</strong> Pedagogs ir aicināts veidot savus jautājumus, iekļaujot tajos mācību programmā apgūstamo vielu un pielāgojot tos bērnu vecumam un nodarbības tēmai, lai materiāls kļūtu daudzveidīgāks un pēc iespējas pielāgots konkrētajai stundas tēmai.</p></div>
+        <p class="lead">Katrā kartītē ir trīs jautājumi vai uzdevumi dažādās grūtības pakāpēs. Pedagogs izvēlas līmeni, kas atbilst bērnam vai komandai. Uzdevumi apvieno ģeogrāfiju ar matemātiku, valodu un kustību.</p>
+      </div>
+      <div>
+        <figure class="real-card"><img src="img/kartite.png" alt="Jautājumu kartīte „Mežs un daba • 15” ar trim grūtības līmeņiem" width="942" height="604" loading="lazy"><figcaption>Kartīte no tēmas „Mežs un daba”</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galerija" style="background:var(--surface-2)">
+  <div class="wrap">
+    <h2>Fotogalerija</h2>
+    <p class="lead">Kā spēle izskatās grupā un klasē, un kas ir komplektā. Uzklikšķiniet uz bildes, lai to palielinātu.</p>
+    <div class="gal-filter" role="group" aria-label="Rādīt bildes">
+      <button type="button" data-f="visas" aria-pressed="true">Visas</button>
+      <button type="button" data-f="prakse" aria-pressed="false">Nodarbībās</button>
+      <button type="button" data-f="komplekts" aria-pressed="false">Pamatkomplekts</button>
+      <button type="button" data-f="kartites" aria-pressed="false">Kartītes</button>
+    </div>
+    <!-- KĀ PIEVIENOT BILDI: ielieciet foto mapē img un nokopējiet vienu <button class="ph"> rindu,
+         nomainot bildes nosaukumu, parakstu (alt un span) un data-cat (prakse, komplekts vai kartites).
+         data-i numuru nav jāmaina. -->
+    <div class="gal" id="gal">
+      <button type="button" class="ph" data-cat="prakse" data-i="0"><img src="img/prakse1.jpg" alt="Komandas darbs bez spiediena" loading="lazy"><span>Komandas darbs bez spiediena</span></button>
+      <button type="button" class="ph" data-cat="prakse" data-i="1"><img src="img/prakse2.jpg" alt="Izsekojam upēm ar pašu rokām" loading="lazy"><span>Izsekojam upēm ar pašu rokām</span></button>
+      <button type="button" class="ph" data-cat="prakse" data-i="2"><img src="img/prakse3.jpg" alt="Robotikas pamati ar Bee-Bot" loading="lazy"><span>Robotikas pamati ar Bee-Bot</span></button>
+      <button type="button" class="ph" data-cat="prakse" data-i="3"><img src="img/prakse4.jpg" alt="Saskaņojam ezera formu ar karti" loading="lazy"><span>Saskaņojam ezera formu ar karti</span></button>
+      <button type="button" class="ph" data-cat="prakse" data-i="4"><img src="img/prakse5.jpg" alt="Katrs lauciņš pēc burtiem un cipariem" loading="lazy"><span>Katrs lauciņš pēc burtiem un cipariem</span></button>
+      <button type="button" class="ph" data-cat="prakse" data-i="5"><img src="img/prakse6.jpg" alt="Katru reizi karte izskatās citādi" loading="lazy"><span>Katru reizi karte izskatās citādi</span></button>
+      <button type="button" class="ph" data-cat="prakse" data-i="6"><img src="img/robots.jpg" alt="Ceļojums ar Bee-Bot robotu" loading="lazy"><span>Ceļojums ar Bee-Bot robotu</span></button>
+      <button type="button" class="ph" data-cat="komplekts" data-i="7"><img src="img/viss.jpg" alt="Visas pamatkomplekta kartītes" loading="lazy"><span>Visas pamatkomplekta kartītes</span></button>
+      <button type="button" class="ph" data-cat="komplekts" data-i="8"><img src="img/legenda.jpg" alt="Kartes leģenda un kompass" loading="lazy"><span>Kartes leģenda un kompass</span></button>
+      <button type="button" class="ph" data-cat="komplekts" data-i="9"><img src="img/komplekts.jpg" alt="Zaļās komandas komplekts" loading="lazy"><span>Zaļās komandas komplekts</span></button>
+      <button type="button" class="ph" data-cat="komplekts" data-i="10"><img src="img/karodzins.jpg" alt="Uzvarētājs uzstāda karodziņu Rīgā" loading="lazy"><span>Uzvarētājs uzstāda karodziņu Rīgā</span></button>
+      <button type="button" class="ph" data-cat="komplekts" data-i="11"><img src="img/bultinas.jpg" alt="Ceļš ar komandu bultiņām" loading="lazy"><span>Ceļš ar komandu bultiņām</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="12"><img src="img/pilsetas.jpg" alt="Valstspilsētas ar ģerboņiem" loading="lazy"><span>Valstspilsētas ar ģerboņiem</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="13"><img src="img/novadi.jpg" alt="Kultūrvēsturiskie novadi" loading="lazy"><span>Kultūrvēsturiskie novadi</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="14"><img src="img/upes.jpg" alt="Latvijas upes" loading="lazy"><span>Latvijas upes</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="15"><img src="img/ezeri.jpg" alt="Ezeru formas" loading="lazy"><span>Ezeru formas</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="16"><img src="img/virsotnes.jpg" alt="Latvijas virsotnes" loading="lazy"><span>Latvijas virsotnes</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="17"><img src="img/jura.jpg" alt="Jūras krastā" loading="lazy"><span>Jūras krastā</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="18"><img src="img/mezs.jpg" alt="Mežs un daba" loading="lazy"><span>Mežs un daba</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="19"><img src="img/simboli.jpg" alt="Latvijas simboli" loading="lazy"><span>Latvijas simboli</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="20"><img src="img/himna.jpg" alt="Himnas rindas" loading="lazy"><span>Himnas rindas</span></button>
+      <button type="button" class="ph" data-cat="kartites" data-i="21"><img src="img/karogi.jpg" alt="Kaimiņvalstu karogi" loading="lazy"><span>Kaimiņvalstu karogi</span></button>
+    </div>
+  </div>
+</section>
+
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Bilde palielināta">
+  <button type="button" class="lb-close" id="lb-close" aria-label="Aizvērt">×</button>
+  <button type="button" class="lb-prev" id="lb-prev" aria-label="Iepriekšējā bilde">←</button>
+  <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button type="button" class="lb-next" id="lb-next" aria-label="Nākamā bilde">→</button>
+</div>
+
+<section id="komplekts">
+  <div class="wrap">
+    <div class="eyebrow">Viss, kas nepieciešams ekspedīcijai</div>
+    <h2>Pamatkomplekta saturs</h2>
+    <p class="lead">Pamatne, žetoni un kartītes ir izgatavoti no mitrumizturīga, nodilumizturīga materiāla, kas ir viegli kopjams un paredzēts ilgai lietošanai.</p>
+    <ul class="kit-grid">
+          <li><img src="img/kit/karte.jpg" alt="" loading="lazy" width="240" height="180"><div><b>1</b><span>spēles pamatne – Latvijas karte, 1,8 × 2,85 m</span></div></li>
+          <li><img src="img/kit/legenda.jpg" alt="" loading="lazy" width="240" height="180"><div><b>1</b><span>kartes leģenda</span></div></li>
+          <li><img src="img/kit/zetoni.jpg" alt="" loading="lazy" width="240" height="180"><div><b>21</b><span>dārgumu žetons (7 veidi, katrs pa 3)</span></div></li>
+          <li><img src="img/kit/pilsetas.jpg" alt="" loading="lazy" width="240" height="180"><div><b>10</b><span>valstspilsētu kartītes ar ģerboņiem</span></div></li>
+          <li><img src="img/kit/novadi.jpg" alt="" loading="lazy" width="240" height="180"><div><b>5</b><span>kultūrvēsturisko novadu kartītes</span></div></li>
+          <li><img src="img/kit/karogi.jpg" alt="" loading="lazy" width="240" height="180"><div><b>5</b><span>valstu karogi un nosaukumi</span></div></li>
+          <li><img src="img/kit/ezeri.jpg" alt="" loading="lazy" width="240" height="180"><div><b>10</b><span>ezeru kartītes ar to formām</span></div></li>
+          <li><img src="img/kit/upes.jpg" alt="" loading="lazy" width="240" height="180"><div><b>4</b><span>upju attēli un 4 nosaukumi</span></div></li>
+          <li><img src="img/kit/virsotnes.jpg" alt="" loading="lazy" width="240" height="180"><div><b>9</b><span>virsotņu (pauguru) kartītes</span></div></li>
+          <li><img src="img/kit/juras_nos.jpg" alt="" loading="lazy" width="240" height="180"><div><b>3</b><span>jūras objektu nosaukumi</span></div></li>
+          <li><img src="img/kit/juras_att.jpg" alt="" loading="lazy" width="240" height="180"><div><b>5</b><span>jūras krasta attēli un 5 nosaukumi</span></div></li>
+          <li><img src="img/kit/simboli.jpg" alt="" loading="lazy" width="240" height="180"><div><b>9</b><span>Latvijas simbolu attēli un 9 nosaukumi</span></div></li>
+          <li><img src="img/kit/himna.jpg" alt="" loading="lazy" width="240" height="180"><div><b>8</b><span>Latvijas himnas rindu kartītes</span></div></li>
+          <li><img src="img/kit/kompass.jpg" alt="" loading="lazy" width="240" height="180"><div><b>2</b><span>kompasa kartītes un 8 debespušu kartītes</span></div></li>
+          <li><img src="img/kit/karodzins.jpg" alt="" loading="lazy" width="240" height="180"><div><b>1</b><span>metamais kauliņš un karodziņš uz koka statīva</span></div></li>
+          <li><img src="img/kit/celotaji.jpg" alt="" loading="lazy" width="240" height="180"><div><b>4</b><span>ceļotāju figūras</span></div></li>
+          <li><img src="img/kit/majinas.jpg" alt="" loading="lazy" width="240" height="180"><div><b>4</b><span>mājiņas</span></div></li>
+          <li><img src="img/kit/bultinas.jpg" alt="" loading="lazy" width="240" height="180"><div><b>24</b><span>virziena bultiņas (4 krāsās)</span></div></li>
+          <li><img src="img/kit/rinkisi.jpg" alt="" loading="lazy" width="240" height="180"><div><b>40</b><span>krāsaini riņķīši</span></div></li>
+          <li><img src="img/kit/kartite.jpg" alt="" loading="lazy" width="240" height="180"><div><b>350</b><span>jautājumu un uzdevumu kartītes</span></div></li>
+    </ul>
+    <p class="scale">Kartes mērogs: <b>1 rūtiņa = 15 × 15 cm = 26,2 × 26,2 km</b> dabā. Kolonnas apzīmētas ar latviešu alfabēta burtiem, rindas ar cipariem 0–10.</p>
+  </div>
+</section>
+
+<section class="band" id="papildkomplekti">
+  <div class="wrap">
+    <div class="eyebrow">Spēle nebeidzas ar pamatkomplektu</div>
+    <h2>Papildkomplekti padziļinātai apguvei</h2>
+    <p class="lead">Papildkomplekti paplašina pamatkomplektu ar jaunām kartītēm un uzdevumiem, ļaujot ar to pašu karti strādāt arvien plašāk un dziļāk.</p>
+    <div class="kit-filter" role="group" aria-label="Rādīt papildkomplektus pēc jomas">
+      <button type="button" data-f="visi" aria-pressed="true">Visi</button>
+      <button type="button" data-f="geografija" aria-pressed="false">Ģeogrāfija</button>
+      <button type="button" data-f="daba" aria-pressed="false">Daba</button>
+      <button type="button" data-f="valoda" aria-pressed="false">Valoda un matemātika</button>
+    </div>
+
+    <!--
+      KĀ PIEVIENOT JAUNU PAPILDKOMPLEKTU
+      1) Nokopējiet vienu <article class="addon"> ... </article> bloku un ielīmējiet to aiz pēdējā.
+      2) Nomainiet nosaukumu, aprakstu, saturu un cenu.
+      3) Bilde: ielieciet foto mapē img un ierakstiet tā nosaukumu, piem. <img src="img/mans-komplekts.jpg" alt="...">.
+         Kamēr bildes nav, atstājiet <div class="addon-ph">...</div>.
+      4) data-joma: geografija, daba vai valoda (nosaka, kurā filtrā komplekts rādās).
+      5) Ja komplekts ir jauns, pievienojiet <span class="chip new">Jaunums</span>.
+    -->
+    <div class="addons" id="addons">
+
+      <article class="addon" data-joma="geografija">
+        <div class="addon-ph ph-a"><span>72</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Pilsētas</span>
+          <h3>72 novadu pilsētu nosaukumi ar ģerboņiem</h3>
+          <p>Pilsētu detektīvu uzdevumus var paplašināt no 10 valstspilsētām uz visām novadu pilsētām.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="geografija">
+        <div class="addon-ph ph-b"><span>45</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Novadi</span>
+          <h3>45 novadu nosaukumi ar ģerboņiem</h3>
+          <p>Novadu nosaukumu kartītes ar ģerboņiem, ko bērni novieto pareizajās vietās kartē.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="geografija">
+        <div class="addon-ph ph-c"><span>▲</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Reljefs</span>
+          <h3>Reljefa apguves komplekts</h3>
+          <p>Augstienes, zemienes un pauguri. Padziļina pauguru ekspedīcijas uzdevumus.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="geografija">
+        <div class="addon-ph ph-d"><span>≈</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Ūdeņi</span>
+          <h3>Upju un ezeru padziļinātais komplekts</h3>
+          <p>Vairāk upju un ezeru upju pētnieku un ezeru formu detektīvu uzdevumiem.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="geografija">
+        <div class="addon-ph ph-e"><span>★</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Objekti</span>
+          <h3>Īpašo objektu komplekts</h3>
+          <p>Apraksts drīzumā.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="daba">
+        <div class="addon-ph ph-a"><span>❦</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Daba</span>
+          <h3>Latvijas augi, dzīvnieki, resursi</h3>
+          <p>Kartītes dabas tēmām: ko kur Latvijā var atrast un kas aug, dzīvo vai tiek iegūts.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="valoda">
+        <div class="addon-ph ph-b"><span>A Ā</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Valoda</span>
+          <h3>Burti valodas spēlēm</h3>
+          <p>Burtu kartītes vārdu spēlēm uz kartes: sākuma skaņas, zilbes, pilsētu un upju nosaukumi.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+      <article class="addon" data-joma="valoda">
+        <div class="addon-ph ph-c"><span>1+2</span><small>Foto drīzumā</small></div>
+        <div class="addon-body">
+          <span class="chip">Matemātika</span>
+          <h3>Cipari un matemātiskās zīmes</h3>
+          <p>Skaitīšanai, salīdzināšanai un aprēķiniem ar rūtiņām, attālumiem un žetoniem.</p>
+          <div class="addon-foot"><span class="addon-price">Cena: jautājiet</span><a class="addon-cta" href="#pasutit">Pieteikt</a></div>
+        </div>
+      </article>
+
+    </div>
+    <p class="addon-note">Visi papildkomplekti der pie tās pašas pamatnes. Jautājiet par komplektu cenām un pieejamību, rakstot vai zvanot.</p>
+  </div>
+</section>
+
+<section id="atsauksmes" style="background:var(--surface-2)">
+  <div class="wrap">
+    <div class="eyebrow">Atsauksmes</div>
+    <h2>Ko saka pedagogi</h2>
+    <!-- KĀ PIEVIENOT ATSAUKSMI: nokopējiet šo bloku, ielīmējiet to <div class="reviews"> iekšpusē
+         un nomainiet tekstu, vārdu un iestādi. Kad ir vismaz viena atsauksme, izdzēsiet bloku <div class="reviews-empty">.
+      <figure class="review">
+        <blockquote>Atsauksmes teksts.</blockquote>
+        <figcaption><b>Vārds Uzvārds</b><span>Amats, iestāde, pilsēta</span></figcaption>
+      </figure>
+    -->
+    <div class="reviews">
+      <div class="reviews-empty">
+        <span class="qmark" aria-hidden="true">“</span>
+        <div>
+          <h3>Pirmās atsauksmes drīzumā</h3>
+          <p>Vai jau spēlējat „Latvijas dārgumus” savā grupā vai klasē? Pastāstiet, kā veicas, ko bērni atklāja un kuri uzdevumi patika visvairāk. Ar jūsu atļauju atsauksmi publicēsim šeit.</p>
+          <div class="crow rev-mail"><div><small>Rakstiet uz</small><span class="v" id="email2">info@muzle.lv</span></div><button class="copy" data-copy="email2">Kopēt</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pasutit">
+  <div class="wrap">
+    <div class="eyebrow">Ieguldījums klasē</div>
+    <h2>Viens komplekts. Gadiem ilga mācīšanās.</h2>
+    <div class="order">
+      <div class="price">
+        <small>Pamatkomplekta cena</small>
+        <div class="num">478 €</div>
+        <p>350 € pamatnes cena, pērkot atsevišķi</p>
+        <ul>
+          <li>Der pirmsskolai, sākumskolai un pamatskolai vienlaikus</li>
+          <li>Var papildināt ar jauniem komplektiem nākotnē</li>
+          <li>Piegāde visā Latvijā</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Sazinieties par pasūtījumu</h3>
+        <div class="crow"><div><small>E-pasts</small><span class="v" id="email">info@muzle.lv</span></div><button class="copy" data-copy="email">Kopēt</button></div>
+        <div class="crow"><div><small>Tālrunis</small><span class="v" id="phone">+371 29239595</span></div><button class="copy" data-copy="phone">Kopēt</button></div>
+        <div class="crow"><div><small>Piegāde</small><span class="v">Visā Latvijā</span></div></div>
+        <p class="company">SIA “Meistars A” · Reģ. Nr. 45403010853<br>Lāčplēša iela 5, Aizkraukle, Aizkraukles nov., LV-5101</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="hand">„Latvijas dārgumi”</span><p>Lai katrs ceļojums pa karti kļūst par atklājumu.</p></div>
+    <p>latvijasdargumi.lv · Muzle, skolas spēļu darbnīca</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- Add-on kit filter ---------- */
+  var fbtns=document.querySelectorAll('.kit-filter button');
+  fbtns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.dataset.f;
+    fbtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    document.querySelectorAll('#addons .addon').forEach(function(a){a.hidden=!(f==='visi'||a.dataset.joma===f)});
+  })});
+
+  /* ---------- Instructions viewer ---------- */
+  var ip=1,IN=11,iimg=document.getElementById('instr-img');
+  function ishow(n){ip=Math.min(IN,Math.max(1,n));iimg.src='img/instr/lpp-'+ip+'.jpg';iimg.alt='Instrukcijas '+ip+'. lappuse';
+    document.getElementById('instr-count').textContent=ip+' / '+IN;
+    document.getElementById('instr-prev').disabled=ip===1;document.getElementById('instr-next').disabled=ip===IN;
+    document.querySelectorAll('.instr-toc button').forEach(function(b){b.setAttribute('aria-current',+b.dataset.p===ip?'true':'false')});}
+  document.getElementById('instr-prev').addEventListener('click',function(){ishow(ip-1)});
+  document.getElementById('instr-next').addEventListener('click',function(){ishow(ip+1)});
+  document.querySelectorAll('.instr-toc button').forEach(function(b){b.addEventListener('click',function(){ishow(+b.dataset.p)})});
+  ishow(1);
+
+  /* ---------- Photo gallery + lightbox ---------- */
+  var phs=[].slice.call(document.querySelectorAll('#gal .ph')),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-cap'),cur=0,lastFocus=null;
+  function visible(){return phs.filter(function(b){return !b.hidden})}
+  function lbShow(btn){var im=btn.querySelector('img');lbi.src=im.src;lbi.alt=im.alt;lbc.textContent=im.alt;cur=visible().indexOf(btn)}
+  function lbOpen(btn){lastFocus=btn;lbShow(btn);lb.hidden=false;document.getElementById('lb-close').focus()}
+  function lbClose(){lb.hidden=true;if(lastFocus)lastFocus.focus()}
+  function lbStep(d){var v=visible();if(!v.length)return;cur=(cur+d+v.length)%v.length;lbShow(v[cur])}
+  phs.forEach(function(b){b.addEventListener('click',function(){lbOpen(b)})});
+  document.getElementById('lb-close').addEventListener('click',lbClose);
+  document.getElementById('lb-prev').addEventListener('click',function(){lbStep(-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){lbStep(1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)lbClose()});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbStep(1);if(e.key==='ArrowLeft')lbStep(-1)});
+  var gfb=document.querySelectorAll('.gal-filter button');
+  gfb.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;
+    gfb.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    phs.forEach(function(p){p.hidden=!(f==='visas'||p.dataset.cat===f)})})});
+
+  /* ---------- Copy buttons ---------- */
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy),txt=el.textContent;
+      function sel(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Iezīmēts'}
+      try{navigator.clipboard.writeText(txt).then(function(){b.textContent='Nokopēts'},sel)}catch(e){sel()}
+      setTimeout(function(){b.textContent='Kopēt'},2000);
+    });
+  });
+})();
+</script>
+
+</body></html>
+</body>
+</html>
