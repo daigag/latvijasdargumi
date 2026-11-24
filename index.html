@@ -412,6 +412,12 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
 .hero-title .eyebrow{font-family:Arial,Helvetica,sans-serif;color:var(--carmine);font-weight:800;font-size:max(14px,1.15cqw);text-shadow:none}
 #par .par-main{margin:24px 0 0;aspect-ratio:auto;border:6px solid #fff;border-radius:4px;overflow:hidden}
 #par .par-main img{display:block;width:100%;height:auto}
+/* Pasūtīt: fonā dārgumu karte */
+#pasutit{position:relative;background:url(img/karte.jpg) center/cover no-repeat}
+#pasutit::before{content:"";position:absolute;inset:0;background:rgba(20,30,20,.45)}
+#pasutit > .wrap{position:relative}
+#pasutit h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+#pasutit .contact{background:var(--surface)}
 /* Visa lapa Arial fontā */
 html,body,button,input,select,textarea,h1,h2,h3,h4,p,a,li,span,small,b,strong,blockquote,figcaption{font-family:Arial,Helvetica,sans-serif}
 </style>
