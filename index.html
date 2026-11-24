@@ -309,9 +309,10 @@ section.par{padding:0}
 .lb{position:fixed;inset:0;z-index:50;background:rgba(10,16,12,.96);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;
   padding:max(16px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
 .lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0;height:100%;justify-content:center}
-.lb img{max-width:100%;max-height:calc(100vh - 120px);object-fit:contain;border-radius:8px}
-.lb figcaption{color:#fff;font-weight:700;text-align:center}
-.lb button{font:inherit;font-size:1.4rem;color:#fff;background:rgba(255,255,255,.12);border:0;border-radius:999px;width:48px;height:48px;cursor:pointer}
+.lb img{max-width:100%;max-height:calc(100vh - 90px);object-fit:contain;border-radius:6px;touch-action:pan-y;user-select:none}
+.lb figcaption{color:rgba(255,255,255,.75);font-size:.95rem;font-variant-numeric:tabular-nums;text-align:center}
+.lb button{font:inherit;font-size:1.6rem;color:#fff;background:rgba(255,255,255,.16);border:0;border-radius:999px;width:56px;height:56px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.28)}
 .lb .lb-close{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
 @media (max-width:560px){.gal{columns:2;column-gap:8px}.ph{margin-bottom:8px}.ph span{font-size:.72rem;padding:16px 8px 6px}}
 @media (max-width:600px){.lb{grid-template-columns:1fr}.lb-prev,.lb-next{position:absolute;bottom:max(16px,env(safe-area-inset-bottom,0px))}.lb-prev{left:16px}.lb-next{right:16px}}
@@ -534,39 +535,32 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
 <section id="galerija" style="background:var(--surface-2)">
   <div class="wrap">
     <h2>Fotogalerija</h2>
-    <p class="lead">Kā spēle izskatās grupā un klasē, un kas ir komplektā. Uzklikšķiniet uz bildes, lai to palielinātu.</p>
-    <div class="gal-filter" role="group" aria-label="Rādīt bildes">
-      <button type="button" data-f="visas" aria-pressed="true">Visas</button>
-      <button type="button" data-f="prakse" aria-pressed="false">Nodarbībās</button>
-      <button type="button" data-f="komplekts" aria-pressed="false">Pamatkomplekts</button>
-      <button type="button" data-f="kartites" aria-pressed="false">Kartītes</button>
-    </div>
     <!-- KĀ PIEVIENOT BILDI: ielieciet foto mapē img un nokopējiet vienu <button class="ph"> rindu,
          nomainot bildes nosaukumu, parakstu (alt un span) un data-cat (prakse, komplekts vai kartites).
          data-i numuru nav jāmaina. -->
     <div class="gal" id="gal">
-      <button type="button" class="ph" data-cat="prakse" data-i="0"><img src="img/prakse1.jpg" alt="Komandas darbs bez spiediena" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="prakse" data-i="1"><img src="img/prakse2.jpg" alt="Izsekojam upēm ar pašu rokām" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="prakse" data-i="2"><img src="img/prakse3.jpg" alt="Robotikas pamati ar Bee-Bot" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="prakse" data-i="3"><img src="img/prakse4.jpg" alt="Saskaņojam ezera formu ar karti" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="prakse" data-i="4"><img src="img/prakse5.jpg" alt="Katrs lauciņš pēc burtiem un cipariem" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="prakse" data-i="5"><img src="img/prakse6.jpg" alt="Katru reizi karte izskatās citādi" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="prakse" data-i="6"><img src="img/robots.jpg" alt="Ceļojums ar Bee-Bot robotu" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="komplekts" data-i="7"><img src="img/viss.jpg" alt="Visas pamatkomplekta kartītes" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="komplekts" data-i="8"><img src="img/legenda.jpg" alt="Kartes leģenda un kompass" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="komplekts" data-i="9"><img src="img/komplekts.jpg" alt="Zaļās komandas komplekts" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="komplekts" data-i="10"><img src="img/karodzins.jpg" alt="Uzvarētājs uzstāda karodziņu Rīgā" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="komplekts" data-i="11"><img src="img/bultinas.jpg" alt="Ceļš ar komandu bultiņām" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="12"><img src="img/pilsetas.jpg" alt="Valstspilsētas ar ģerboņiem" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="13"><img src="img/novadi.jpg" alt="Kultūrvēsturiskie novadi" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="14"><img src="img/upes.jpg" alt="Latvijas upes" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="15"><img src="img/ezeri.jpg" alt="Ezeru formas" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="16"><img src="img/virsotnes.jpg" alt="Latvijas virsotnes" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="17"><img src="img/jura.jpg" alt="Jūras krastā" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="18"><img src="img/mezs.jpg" alt="Mežs un daba" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="19"><img src="img/simboli.jpg" alt="Latvijas simboli" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="20"><img src="img/himna.jpg" alt="Himnas rindas" loading="lazy"></button>
-      <button type="button" class="ph" data-cat="kartites" data-i="21"><img src="img/karogi.jpg" alt="Kaimiņvalstu karogi" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/prakse1.jpg" data-cat="prakse" data-i="0"><img src="img/prakse1.jpg" width="900" height="430" alt="Komandas darbs bez spiediena" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/prakse2.jpg" data-cat="prakse" data-i="1"><img src="img/prakse2.jpg" width="900" height="430" alt="Izsekojam upēm ar pašu rokām" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/prakse3.jpg" data-cat="prakse" data-i="2"><img src="img/prakse3.jpg" width="900" height="430" alt="Robotikas pamati ar Bee-Bot" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/prakse4.jpg" data-cat="prakse" data-i="3"><img src="img/prakse4.jpg" width="900" height="430" alt="Saskaņojam ezera formu ar karti" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/prakse5.jpg" data-cat="prakse" data-i="4"><img src="img/prakse5.jpg" width="900" height="430" alt="Katrs lauciņš pēc burtiem un cipariem" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/prakse6.jpg" data-cat="prakse" data-i="5"><img src="img/prakse6.jpg" width="900" height="430" alt="Katru reizi karte izskatās citādi" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/robots.jpg" data-cat="prakse" data-i="6"><img src="img/robots.jpg" width="926" height="1000" alt="Ceļojums ar Bee-Bot robotu" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/viss.jpg" data-cat="komplekts" data-i="7"><img src="img/viss.jpg" width="750" height="1000" alt="Visas pamatkomplekta kartītes" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/legenda.jpg" data-cat="komplekts" data-i="8"><img src="img/legenda.jpg" width="1000" height="750" alt="Kartes leģenda un kompass" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/komplekts.jpg" data-cat="komplekts" data-i="9"><img src="img/komplekts.jpg" width="750" height="1000" alt="Zaļās komandas komplekts" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/karodzins.jpg" data-cat="komplekts" data-i="10"><img src="img/karodzins.jpg" width="750" height="1000" alt="Uzvarētājs uzstāda karodziņu Rīgā" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/bultinas.jpg" data-cat="komplekts" data-i="11"><img src="img/bultinas.jpg" width="1000" height="750" alt="Ceļš ar komandu bultiņām" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/pilsetas.jpg" data-cat="kartites" data-i="12"><img src="img/pilsetas.jpg" width="750" height="1000" alt="Valstspilsētas ar ģerboņiem" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/novadi.jpg" data-cat="kartites" data-i="13"><img src="img/novadi.jpg" width="750" height="1000" alt="Kultūrvēsturiskie novadi" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/upes.jpg" data-cat="kartites" data-i="14"><img src="img/upes.jpg" width="1000" height="750" alt="Latvijas upes" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/ezeri.jpg" data-cat="kartites" data-i="15"><img src="img/ezeri.jpg" width="750" height="1000" alt="Ezeru formas" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/virsotnes.jpg" data-cat="kartites" data-i="16"><img src="img/virsotnes.jpg" width="750" height="1000" alt="Latvijas virsotnes" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/jura.jpg" data-cat="kartites" data-i="17"><img src="img/jura.jpg" width="750" height="1000" alt="Jūras krastā" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/mezs.jpg" data-cat="kartites" data-i="18"><img src="img/mezs.jpg" width="750" height="1000" alt="Mežs un daba" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/simboli.jpg" data-cat="kartites" data-i="19"><img src="img/simboli.jpg" width="1000" height="750" alt="Latvijas simboli" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/himna.jpg" data-cat="kartites" data-i="20"><img src="img/himna.jpg" width="750" height="1000" alt="Himnas rindas" loading="lazy"></button>
+      <button type="button" class="ph" data-full="img/gal/karogi.jpg" data-cat="kartites" data-i="21"><img src="img/karogi.jpg" width="1000" height="750" alt="Kaimiņvalstu karogi" loading="lazy"></button>
     </div>
   </div>
 </section>
@@ -575,7 +569,7 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Bilde palielināta">
   <button type="button" class="lb-close" id="lb-close" aria-label="Aizvērt">×</button>
   <button type="button" class="lb-prev" id="lb-prev" aria-label="Iepriekšējā bilde">←</button>
-  <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap" hidden></figcaption></figure>
+  <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
   <button type="button" class="lb-next" id="lb-next" aria-label="Nākamā bilde">→</button>
 </div>
 
@@ -800,12 +794,16 @@ footer p{font-size:.9rem;color:color-mix(in srgb,var(--forest-ink) 72%,transpare
   /* ---------- Photo gallery + lightbox ---------- */
   var phs=[].slice.call(document.querySelectorAll('#gal .ph')),lb=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-cap'),cur=0,lastFocus=null;
   function visible(){return phs.filter(function(b){return !b.hidden})}
-  function lbShow(btn){var im=btn.querySelector('img');lbi.src=im.src;lbi.alt=im.alt;lbc.textContent=im.alt;cur=visible().indexOf(btn)}
+  function full(btn){return btn.dataset.full||btn.querySelector('img').src}
+  function lbShow(btn){var im=btn.querySelector('img'),v=visible();lbi.src=full(btn);lbi.alt=im.alt;cur=v.indexOf(btn);lbc.textContent=(cur+1)+' / '+v.length;
+    [1,-1].forEach(function(d){var n=v[(cur+d+v.length)%v.length];if(n){var pre=new Image();pre.src=full(n)}})}
   function lbOpen(btn){lastFocus=btn;lbShow(btn);lb.hidden=false;document.getElementById('lb-close').focus()}
   function lbClose(){lb.hidden=true;if(lastFocus)lastFocus.focus()}
   function lbStep(d){var v=visible();if(!v.length)return;cur=(cur+d+v.length)%v.length;lbShow(v[cur])}
   phs.forEach(function(b){b.addEventListener('click',function(){lbOpen(b)})});
   document.getElementById('lb-close').addEventListener('click',lbClose);
+  var tx=null;lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>40)lbStep(dx<0?1:-1)});
   document.getElementById('lb-prev').addEventListener('click',function(){lbStep(-1)});
   document.getElementById('lb-next').addEventListener('click',function(){lbStep(1)});
   lb.addEventListener('click',function(e){if(e.target===lb)lbClose()});
